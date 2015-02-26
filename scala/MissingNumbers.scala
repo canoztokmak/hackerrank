@@ -1,0 +1,23 @@
+package scalaexamples
+
+/**
+ * Created by oztokmakc on 19/02/15.
+ */
+// hackerrank - missing numbers
+object MissingNumbers {
+
+  def main(args: Array[String]) {
+
+    readLine
+    val listA = readLine.split(" ").map(_.toInt)
+    readLine
+    val listB = readLine.split(" ").map(_.toInt)
+
+    val freqA = listA.groupBy(identity).mapValues(_.length)
+    val freqB = listB.groupBy(identity).mapValues(_.length)
+
+    println(listB.distinct.filter(t => freqA(t) != freqB(t)).sorted.mkString(" "))
+
+  }
+
+}

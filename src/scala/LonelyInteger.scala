@@ -4,9 +4,10 @@ package scala
 object LonelyInteger {
 
   def main(args: Array[String]) {
-
     readLine
-    println(readLine.split(" ").groupBy(identity).filter(_._2.size == 1).head._1)
+    val numbers = readLine.split(" ")
+//    println(numbers.groupBy(identity).filter(_._2.size == 1).head._1)
+    println(numbers.map(_.toInt).reduce((a,b) => a ^ b))
 
   }
 
